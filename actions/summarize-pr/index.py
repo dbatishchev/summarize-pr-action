@@ -1,7 +1,7 @@
 import os
 import requests
 from github import Github
-from openai import OpenAI, error
+from openai import OpenAI
 
 def run():
     try:
@@ -42,9 +42,6 @@ def run():
         # Post the summary as a comment on the PR
         repo.create_issue_comment(pr_number, f'**PR Code Summary:**\n\n{summary}')
 
-    except error.OpenAIError as e:
-        print(f'OpenAI API error: {e}')
-        exit(1)
     except Exception as e:
         print(f'Error: {e}')
         exit(1)
