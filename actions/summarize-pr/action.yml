@@ -8,5 +8,5 @@ inputs:
     description: 'OpenAI API key'
     required: true
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: "node12"
+  main: "../../dist/actions/summarize-pr/src/index.js"

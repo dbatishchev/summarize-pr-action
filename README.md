@@ -16,8 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Summarize PR
-      uses: dbatishchev/summarize-pr-action@main
+      uses: dbatishchev/summarize-pr-action/actions/summarize-pr@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         openai_api_key: ${{ secrets.OPENAI_API_KEY }}
