@@ -31,13 +31,13 @@ def run():
         openai = OpenAI(api_key=openai_api_key)
 
         # Summarize the code using OpenAI API
-        response = openai.completions.create(
+        response = openai.chat.completions.create(
             model='gpt-4o',
             prompt=f'You are an expert software engineer. Please provide a concise summary of the following code changes:\n\n{code_content}\n\nSummary:',
             max_tokens=150
         )
 
-        summary = response.choices[0].text.strip()
+        summary = response.choices[0].message.content.strip()
 
         # Post the summary as a comment on the PR
         repo.create_issue_comment(pr_number, f'**PR Code Summary:**\n\n{summary}')
