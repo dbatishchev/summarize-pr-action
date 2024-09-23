@@ -33,8 +33,11 @@ def run():
         # Summarize the code using OpenAI API
         response = openai.chat.completions.create(
             model='gpt-4o',
-            prompt=f'You are an expert software engineer. Please provide a concise summary of the following code changes:\n\n{code_content}\n\nSummary:',
-            max_tokens=150
+            max_tokens=150,
+            messages=[
+                {"role": "system", "content": "You are an expert software engineer."},
+                {"role": "user", "content": f"Please provide a concise summary of the following code changes:\n\n{code_content}\n\nSummary:"}
+            ]
         )
 
         summary = response.choices[0].message.content.strip()
