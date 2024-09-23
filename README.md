@@ -1,9 +1,3 @@
-Run this command to release a new version:
-```bash
-git tag vx.x.x
-git push origin --tags
-```
-
 In any repository where you want to use this action, create a workflow file, for example, .github/workflows/summarize-pr.yml with the following content:
 ```yaml
 name: Summarize PR
