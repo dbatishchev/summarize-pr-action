@@ -12,10 +12,20 @@ runs:
   steps:
     - name: Check out repository
       uses: actions/checkout@v2
+      with:
+        repository: ${{ inputs.repo_name }}
+
+    - name: Check out additional repository
+      uses: actions/checkout@v2
+      with:
+        repository: 'dbatishchev/summarize-pr-action'
+        path: 'summarize-pr-action'
+      
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
+
     - name: List directory contents for debugging
       run: ls -R
       shell: bash  # Added shell property
