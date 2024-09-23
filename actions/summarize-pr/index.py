@@ -43,7 +43,7 @@ def run():
         summary = response.choices[0].message.content.strip()
 
         # Post the summary as a comment on the PR
-        repo.create_issue_comment(pr_number, f'**PR Code Summary:**\n\n{summary}')
+        pr.create_issue_comment(pr_number, f'**PR Code Summary:**\n\n{summary}')
 
     except Exception as e:
         print(f'Error: {e}')
