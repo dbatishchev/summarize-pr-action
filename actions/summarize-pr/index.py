@@ -31,7 +31,7 @@ def run():
         openai = OpenAI(api_key=openai_api_key)
 
         # Summarize the code using OpenAI API
-        response = openai.Completion.create(
+        response = openai.completions.create(
             model='gpt-4o',
             prompt=f'You are an expert software engineer. Please provide a concise summary of the following code changes:\n\n{code_content}\n\nSummary:',
             max_tokens=150
