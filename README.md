@@ -1,6 +1,7 @@
-Run this command and commit the result:
+Run this command to release a new version:
 ```bash
-npx tsc
+git tag vx.x.x
+git push origin --tags
 ```
 
 In any repository where you want to use this action, create a workflow file, for example, .github/workflows/summarize-pr.yml with the following content:
